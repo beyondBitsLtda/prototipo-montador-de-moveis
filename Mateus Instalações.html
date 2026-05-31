@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mateus Instalações — Montagem de Móveis</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+
+<!-- AOS scroll animations -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+<style>
+:root{
+  --mustard:#E5912B;
+  --mustard-deep:#C8761A;
+  --mustard-soft:#F6C97A;
+  --brown:#2A1A10;
+  --brown-soft:#3C2819;
+  --brown-line:#4A3322;
+  --cream:#FAF6F1;
+  --cream-warm:#F2E9DC;
+  --cream-deep:#EADCC9;
+  --ink:#22160C;
+  --ink-soft:#6B5847;
+  --wa:#25D366;
+  --wa-deep:#1EB257;
+  --white:#FFFFFF;
+  --radius:16px;
+  --radius-lg:26px;
+  --shadow-sm:0 2px 10px rgba(42,26,16,.06);
+  --shadow:0 18px 50px -22px rgba(42,26,16,.30);
+  --shadow-lg:0 40px 90px -40px rgba(42,26,16,.45);
+  --maxw:1200px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+h1,h2,h3,.display{font-family:'Playfair Display',serif;letter-spacing:-.01em;line-height:1.04}
+.eyebrow{
+  font-family:'DM Sans',sans-serif;
+  font-weight:600;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mustard-deep);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--mustard);border-radius:2px}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;
+  padding:15px 26px;border-radius:999px;cursor:pointer;border:1.5px solid transparent;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .2s,color .2s;
+  white-space:nowrap;
+}
+.btn svg{width:19px;height:19px}
+.btn-mustard{background:var(--mustard);color:#321f0e;box-shadow:0 12px 26px -10px rgba(200,118,26,.7)}
+.btn-mustard:hover{transform:translateY(-3px);box-shadow:0 18px 34px -10px rgba(200,118,26,.8)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 12px 26px -10px rgba(37,211,102,.7)}
+.btn-wa:hover{transform:translateY(-3px);background:var(--wa-deep);box-shadow:0 18px 36px -10px rgba(37,211,102,.75)}
+.btn-outline{background:transparent;color:var(--brown);border-color:rgba(42,26,16,.28)}
+.btn-outline:hover{background:var(--brown);color:var(--cream);border-color:var(--brown);transform:translateY(-3px)}
+.btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-ghost-light:hover{background:#fff;color:var(--brown)}
+.btn-lg{padding:19px 38px;font-size:1.08rem}
+
+/* ---------- Navbar ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  transition:background .3s,box-shadow .3s,padding .3s;
+  padding:18px 0;
+}
+.nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:0 6px 24px -12px rgba(42,26,16,.25);padding:11px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Playfair Display',serif;font-weight:800;font-size:1.32rem;color:var(--brown)}
+.logo-mark{
+  width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:var(--mustard);color:#321f0e;flex:0 0 auto;
+  box-shadow:0 8px 18px -8px rgba(200,118,26,.8);transform:rotate(-6deg);
+}
+.logo-mark svg{width:23px;height:23px}
+.logo small{display:block;font-family:'DM Sans',sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mustard-deep);margin-top:-2px}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-weight:500;font-size:.96rem;color:var(--brown-soft);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--mustard);transition:width .25s}
+.nav-links a:hover{color:var(--brown)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-burger{display:none;background:none;border:none;cursor:pointer;color:var(--brown);padding:6px}
+.nav-burger svg{width:28px;height:28px}
+
+/* mobile menu */
+.mobile-menu{
+  position:fixed;inset:0;z-index:95;background:var(--brown);
+  display:flex;flex-direction:column;justify-content:center;gap:8px;padding:40px;
+  transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{color:var(--cream);font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;padding:12px 0;border-bottom:1px solid var(--brown-line)}
+.mobile-menu .close{position:absolute;top:28px;right:28px;background:none;border:none;color:var(--cream);cursor:pointer}
+.mobile-menu .close svg{width:34px;height:34px}
+.mobile-menu .btn{margin-top:26px;justify-content:center}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:150px 0 90px;overflow:hidden}
+.hero-bg-deco{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-bg-deco .ring{position:absolute;border-radius:50%;border:1.5px solid rgba(200,118,26,.16)}
+.hero-bg-deco .r1{width:520px;height:520px;top:-160px;right:-120px}
+.hero-bg-deco .r2{width:340px;height:340px;top:-70px;right:30px;border-color:rgba(200,118,26,.1)}
+.hero-bg-deco .wood{position:absolute;left:-40px;bottom:-30px;width:380px;height:380px;
+  background:repeating-linear-gradient(122deg,rgba(200,118,26,.07) 0 2px,transparent 2px 26px);
+  border-radius:50%;filter:blur(.3px)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero-copy h1{font-size:clamp(2.6rem,5.4vw,4.35rem);font-weight:800;color:var(--brown);margin:22px 0 0}
+.hero-copy h1 .accent{color:var(--mustard-deep);font-style:italic;font-weight:700}
+.hero-sub{font-size:1.2rem;color:var(--ink-soft);max-width:30rem;margin:22px 0 34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-trust{display:flex;align-items:center;gap:14px;margin-top:30px;color:var(--ink-soft);font-size:.92rem}
+.hero-trust .avatars{display:flex}
+.hero-trust .avatars span{width:38px;height:38px;border-radius:50%;border:2.5px solid var(--cream);margin-left:-12px;background-size:cover;background-position:center}
+.hero-trust .avatars span:first-child{margin-left:0}
+.hero-trust b{color:var(--brown)}
+.hero-stars{color:var(--mustard);letter-spacing:2px}
+
+.hero-media{position:relative}
+.hero-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/4.4}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(42,26,16,.28))}
+.float-badge{
+  position:absolute;background:#fff;border-radius:14px;padding:13px 17px;box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:12px;font-weight:600;font-size:.92rem;color:var(--brown);z-index:3;
+}
+.float-badge .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:0 0 auto}
+.float-badge .ico svg{width:20px;height:20px}
+.fb-1{top:24px;left:-26px;animation:floaty 5s ease-in-out infinite}
+.fb-1 .ico{background:#FDEFD6;color:var(--mustard-deep)}
+.fb-2{bottom:96px;right:-30px;animation:floaty 5.6s ease-in-out infinite .6s}
+.fb-2 .ico{background:#DFF6E7;color:var(--wa-deep)}
+.fb-3{bottom:-18px;left:34px;animation:floaty 6.2s ease-in-out infinite .3s}
+.fb-3 .ico{background:#E9E2Fb;color:#6B4FC4}
+.fb-small{font-size:.72rem;color:var(--ink-soft);font-weight:500;display:block;margin-top:1px}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+/* ---------- Brand strip ---------- */
+.brands{background:var(--brown);color:var(--cream);padding:30px 0}
+.brands-inner{display:flex;align-items:center;justify-content:center;gap:18px 40px;flex-wrap:wrap}
+.brands-label{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mustard-soft);font-weight:600;width:100%;text-align:center;margin-bottom:4px}
+.brands-inner b{font-family:'Playfair Display',serif;font-weight:700;font-size:1.32rem;color:#EFE3D2;opacity:.85;transition:opacity .2s,color .2s}
+.brands-inner b:hover{opacity:1;color:var(--mustard-soft)}
+.brand-dot{width:6px;height:6px;border-radius:50%;background:var(--mustard);opacity:.6}
+
+/* ---------- Section base ---------- */
+section{position:relative}
+.sec-pad{padding:96px 0}
+.sec-head{max-width:42rem;margin-bottom:50px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(2.1rem,4vw,3.1rem);font-weight:800;color:var(--brown);margin:16px 0 14px}
+.sec-head p{font-size:1.12rem;color:var(--ink-soft)}
+
+/* ---------- Services ---------- */
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.serv-card{
+  background:#fff;border:1px solid var(--cream-deep);border-radius:var(--radius);padding:32px 28px;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s;position:relative;overflow:hidden;
+}
+.serv-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--mustard);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.serv-card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.serv-card:hover::before{transform:scaleX(1)}
+.serv-ico{width:58px;height:58px;border-radius:15px;background:#FDEFD6;color:var(--mustard-deep);display:grid;place-items:center;margin-bottom:20px;transition:background .3s,color .3s}
+.serv-ico svg{width:28px;height:28px}
+.serv-card:hover .serv-ico{background:var(--mustard);color:#321f0e}
+.serv-card h3{font-size:1.3rem;font-weight:700;color:var(--brown);margin-bottom:9px}
+.serv-card p{color:var(--ink-soft);font-size:.98rem}
+
+/* ---------- Diferenciais (dark) ---------- */
+.diff{background:var(--brown);color:var(--cream);overflow:hidden}
+.diff .wood-tex{position:absolute;inset:0;opacity:.5;
+  background:repeating-linear-gradient(100deg,rgba(255,255,255,.018) 0 1px,transparent 1px 34px)}
+.diff .eyebrow{color:var(--mustard-soft)}
+.diff .eyebrow::before{background:var(--mustard-soft)}
+.diff h2{color:#fff}
+.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:18px;position:relative;z-index:2}
+.diff-card{padding:30px 24px;border-radius:var(--radius);background:rgba(255,255,255,.04);border:1px solid var(--brown-line);transition:background .3s,transform .3s}
+.diff-card:hover{background:rgba(229,145,43,.12);transform:translateY(-6px)}
+.diff-ico{width:54px;height:54px;border-radius:14px;background:var(--mustard);color:#321f0e;display:grid;place-items:center;margin-bottom:18px}
+.diff-ico svg{width:27px;height:27px}
+.diff-card h3{font-size:1.42rem;color:#fff;margin-bottom:6px;font-weight:700}
+.diff-card p{color:#C9B7A4;font-size:.94rem}
+
+/* ---------- Como funciona ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;position:relative}
+.step{position:relative;padding-top:10px}
+.step-num{font-family:'Playfair Display',serif;font-weight:800;font-size:4.4rem;color:var(--cream-deep);line-height:.8;margin-bottom:14px}
+.step:hover .step-num{color:var(--mustard-soft)}
+.step-ico{position:absolute;top:6px;left:64px;width:46px;height:46px;border-radius:12px;background:var(--mustard);color:#321f0e;display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.step-ico svg{width:23px;height:23px}
+.step h3{font-size:1.42rem;color:var(--brown);margin-bottom:8px;font-weight:700}
+.step p{color:var(--ink-soft)}
+.steps-line{position:absolute;top:30px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,var(--cream-deep) 0 12px,transparent 12px 22px);z-index:-1}
+
+/* ---------- Depoimentos ---------- */
+.testi{background:var(--cream-warm)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:#fff;border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow-sm);position:relative;border:1px solid var(--cream-deep)}
+.testi-card .quote{font-family:'Playfair Display',serif;font-size:3.6rem;color:var(--mustard-soft);line-height:.4;height:26px}
+.testi-stars{color:var(--mustard);letter-spacing:2px;margin:6px 0 14px;font-size:1.05rem}
+.testi-card p{font-size:1.06rem;color:var(--brown-soft);font-style:italic;margin-bottom:22px}
+.testi-author{display:flex;align-items:center;gap:13px}
+.testi-author .ava{width:48px;height:48px;border-radius:50%;background:var(--mustard);color:#321f0e;display:grid;place-items:center;font-weight:700;font-family:'Playfair Display',serif;font-size:1.2rem}
+.testi-author b{display:block;color:var(--brown);font-weight:700}
+.testi-author small{color:var(--ink-soft)}
+
+/* ---------- Stats ---------- */
+.stats{background:linear-gradient(135deg,var(--mustard-deep),var(--mustard));color:#321f0e;position:relative;overflow:hidden}
+.stats .wood-tex{position:absolute;inset:0;opacity:.6;background:repeating-linear-gradient(115deg,rgba(50,31,14,.05) 0 2px,transparent 2px 30px)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);position:relative;z-index:2}
+.stat{text-align:center;padding:14px 20px;position:relative}
+.stat + .stat::before{content:"";position:absolute;left:0;top:18%;height:64%;width:1.5px;background:rgba(50,31,14,.2)}
+.stat .num{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,6vw,4.6rem);line-height:1}
+.stat .lbl{font-weight:600;font-size:1.05rem;margin-top:6px;opacity:.85}
+
+/* ---------- CTA final ---------- */
+.cta{background:var(--brown);color:var(--cream);text-align:center;position:relative;overflow:hidden}
+.cta .wood-tex{position:absolute;inset:0;opacity:.6;background:repeating-linear-gradient(120deg,rgba(255,255,255,.02) 0 2px,transparent 2px 32px)}
+.cta .glow{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(229,145,43,.22),transparent 65%);top:-180px;left:50%;transform:translateX(-50%)}
+.cta-inner{position:relative;z-index:2;max-width:46rem;margin:0 auto}
+.cta h2{font-size:clamp(2.3rem,5vw,3.7rem);font-weight:800;color:#fff;margin:18px 0 14px}
+.cta h2 .accent{color:var(--mustard-soft);font-style:italic}
+.cta p{font-size:1.2rem;color:#D8C6B3;margin-bottom:34px}
+
+/* ---------- Footer ---------- */
+.footer{background:#1C1009;color:#C9B7A4;padding:64px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--brown-line)}
+.foot-brand .logo{color:#fff;margin-bottom:16px}
+.foot-brand p{max-width:22rem;font-size:.98rem}
+.foot-col h4{color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;color:var(--mustard-soft)}
+.foot-col a{display:block;padding:6px 0;font-size:.98rem;transition:color .2s}
+.foot-col a:hover{color:var(--mustard-soft)}
+.foot-social{display:flex;gap:12px;margin-top:6px}
+.foot-social a{width:44px;height:44px;border-radius:11px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#E5D6C4;transition:background .25s,color .25s,transform .25s}
+.foot-social a:hover{background:var(--mustard);color:#321f0e;transform:translateY(-3px)}
+.foot-social svg{width:21px;height:21px}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;font-size:.88rem;color:#8C7763}
+
+/* ---------- WhatsApp float ---------- */
+.wa-float{
+  position:fixed;right:24px;bottom:24px;z-index:80;display:flex;align-items:center;gap:0;
+  background:var(--wa);color:#fff;border-radius:999px;padding:14px;box-shadow:0 16px 40px -10px rgba(37,211,102,.6);
+  transition:gap .3s,padding .3s,transform .25s;overflow:hidden;
+}
+.wa-float svg{width:30px;height:30px;flex:0 0 auto}
+.wa-float .wa-label{max-width:0;opacity:0;white-space:nowrap;font-weight:600;transition:max-width .35s,opacity .25s,margin .3s;margin:0}
+.wa-float:hover{gap:10px;padding:14px 22px 14px 16px}
+.wa-float:hover .wa-label{max-width:160px;opacity:1;margin-left:2px}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:999px;border:2px solid var(--wa);animation:pulse 2.4s ease-out infinite;pointer-events:none}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+
+/* ---------- Responsive ---------- */
+@media(max-width:980px){
+  .nav-links,.nav-cta .btn{display:none}
+  .nav-burger{display:block}
+  .hero-grid{grid-template-columns:1fr;gap:60px}
+  .hero-media{max-width:440px;margin:0 auto}
+  .serv-grid{grid-template-columns:repeat(2,1fr)}
+  .diff-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr;gap:38px}
+  .steps-line{display:none}
+  .testi-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .sec-pad{padding:70px 0}
+  .serv-grid,.diff-grid,.stats-grid{grid-template-columns:1fr}
+  .stat + .stat::before{display:none}
+  .stat + .stat{border-top:1px solid rgba(50,31,14,.18);padding-top:26px;margin-top:6px}
+  .hero{padding:130px 0 60px}
+  .float-badge{transform:scale(.85)}
+  .fb-1{left:-8px}.fb-2{right:-8px}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark"><i data-lucide="wrench"></i></span>
+      <span>Mateus Instalações<small>Montagem de Móveis</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contato" class="btn btn-mustard">Solicitar Montagem</a>
+      <button class="nav-burger" id="burger" aria-label="Abrir menu"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="closeMenu" aria-label="Fechar menu"><i data-lucide="x"></i></button>
+  <a href="#servicos">Serviços</a>
+  <a href="#como-funciona">Como Funciona</a>
+  <a href="#depoimentos">Depoimentos</a>
+  <a href="#contato">Contato</a>
+  <a href="#contato" class="btn btn-mustard">Solicitar Montagem</a>
+</div>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-bg-deco">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <div class="wood"></div>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy" data-aos="fade-right">
+      <span class="eyebrow">Montador profissional autônomo</span>
+      <h1>Móveis montados com <span class="accent">precisão</span> e agilidade</h1>
+      <p class="hero-sub">Atendimento rápido, sem dor de cabeça. Você compra, eu monto — com ferramenta própria e garantia no serviço.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-wa"><i data-lucide="message-circle"></i> Chamar no WhatsApp</a>
+        <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+      </div>
+      <div class="hero-trust">
+        <div class="avatars">
+          <span style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80')"></span>
+          <span style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80')"></span>
+          <span style="background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80')"></span>
+        </div>
+        <div><span class="hero-stars">★★★★★</span><br><b>+300 clientes</b> atendidos na região</div>
+      </div>
+    </div>
+
+    <div class="hero-media" data-aos="fade-left" data-aos-delay="100">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=900&q=80" alt="Profissional montando móvel" />
+      </div>
+      <div class="float-badge fb-1">
+        <span class="ico"><i data-lucide="clock"></i></span>
+        <span>Mesmo dia<span class="fb-small">Agendamento rápido</span></span>
+      </div>
+      <div class="float-badge fb-2">
+        <span class="ico"><i data-lucide="shield-check"></i></span>
+        <span>Garantia de serviço<span class="fb-small">90 dias</span></span>
+      </div>
+      <div class="float-badge fb-3">
+        <span class="ico"><i data-lucide="package"></i></span>
+        <span>Todas as marcas<span class="fb-small">IKEA, Tok&amp;Stok…</span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BRANDS ============ -->
+<section class="brands">
+  <div class="wrap brands-inner">
+    <span class="brands-label">Monto móveis de todas as lojas e marcas</span>
+    <b>IKEA</b><span class="brand-dot"></span>
+    <b>Tok&amp;Stok</b><span class="brand-dot"></span>
+    <b>Etna</b><span class="brand-dot"></span>
+    <b>Leroy Merlin</b><span class="brand-dot"></span>
+    <b>MadeiraMadeira</b><span class="brand-dot"></span>
+    <b>Casas Bahia</b><span class="brand-dot"></span>
+    <b>Magazine Luiza</b>
+  </div>
+</section>
+
+<!-- ============ SERVIÇOS ============ -->
+<section id="servicos" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="eyebrow">Serviços</span>
+      <h2>Tudo que seu móvel precisa</h2>
+      <p>Do guarda-roupa gigante ao suporte de TV na parede — faço a montagem completa, limpa e bem-feita.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card" data-aos="fade-up">
+        <div class="serv-ico"><i data-lucide="armchair"></i></div>
+        <h3>Montagem de Móveis</h3>
+        <p>Racks, guarda-roupas, estantes, camas, sofás e muito mais — montados com cuidado e acabamento perfeito.</p>
+      </div>
+      <div class="serv-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="serv-ico"><i data-lucide="package-open"></i></div>
+        <h3>Desmontagem e Remontagem</h3>
+        <p>Perfeito para mudanças e reformas. Desmonto, transporto com segurança e remonto no novo lugar.</p>
+      </div>
+      <div class="serv-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="serv-ico"><i data-lucide="drill"></i></div>
+        <h3>Fixação na Parede</h3>
+        <p>TVs, prateleiras, espelhos, quadros e suportes fixados com firmeza e no lugar certo.</p>
+      </div>
+      <div class="serv-card" data-aos="fade-up">
+        <div class="serv-ico"><i data-lucide="cooking-pot"></i></div>
+        <h3>Montagem de Cozinha</h3>
+        <p>Armários planejados e modulados de todos os tipos, alinhados e prontos para usar.</p>
+      </div>
+      <div class="serv-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="serv-ico"><i data-lucide="boxes"></i></div>
+        <h3>Montagem IKEA</h3>
+        <p>Especialista em móveis importados e manuais complexos. Sem peças sobrando, sem improviso.</p>
+      </div>
+      <div class="serv-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="serv-ico"><i data-lucide="hammer"></i></div>
+        <h3>Reparos e Ajustes</h3>
+        <p>Portas, dobradiças, corrediças e parafusos soltos. Deixo tudo firme e funcionando de novo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="diff sec-pad">
+  <div class="wood-tex"></div>
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <span class="eyebrow">Por que me contratar</span>
+      <h2>Trabalho que você pode confiar</h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card" data-aos="fade-up">
+        <div class="diff-ico"><i data-lucide="calendar-check"></i></div>
+        <h3>Mesmo dia</h3>
+        <p>Agendamento no mesmo dia conforme disponibilidade.</p>
+      </div>
+      <div class="diff-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="diff-ico"><i data-lucide="wrench"></i></div>
+        <h3>Ferramenta própria</h3>
+        <p>Equipamentos profissionais para todo tipo de móvel.</p>
+      </div>
+      <div class="diff-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="diff-ico"><i data-lucide="shield-check"></i></div>
+        <h3>90 dias de garantia</h3>
+        <p>Garantia no serviço prestado, sem letra miúda.</p>
+      </div>
+      <div class="diff-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="diff-ico"><i data-lucide="star"></i></div>
+        <h3>+300 clientes</h3>
+        <p>Centenas de montagens entregues com nota máxima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section id="como-funciona" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Simples do começo ao fim</h2>
+      <p>Em três passos seu móvel sai da caixa e vai pro lugar — sem estresse.</p>
+    </div>
+    <div class="steps">
+      <div class="steps-line"></div>
+      <div class="step" data-aos="fade-up">
+        <div class="step-num">01</div>
+        <div class="step-ico"><i data-lucide="message-circle"></i></div>
+        <h3>Entre em contato</h3>
+        <p>Mande foto do móvel ou do manual pelo WhatsApp e me conte o que precisa.</p>
+      </div>
+      <div class="step" data-aos="fade-up" data-aos-delay="120">
+        <div class="step-num">02</div>
+        <div class="step-ico"><i data-lucide="calendar-days"></i></div>
+        <h3>Agendamento rápido</h3>
+        <p>Combinamos o horário que encaixa na sua rotina, com orçamento na hora.</p>
+      </div>
+      <div class="step" data-aos="fade-up" data-aos-delay="240">
+        <div class="step-num">03</div>
+        <div class="step-ico"><i data-lucide="check-check"></i></div>
+        <h3>Montagem feita</h3>
+        <p>Rápido, limpo e com garantia. Recolho a embalagem e deixo tudo pronto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section id="depoimentos" class="testi sec-pad">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>Quem contratou, recomenda</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card" data-aos="fade-up">
+        <div class="quote">”</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Guarda-roupa enorme montado em 2 horas. Serviço impecável e tudo muito organizado!</p>
+        <div class="testi-author"><span class="ava">A</span><span><b>Ana Paula</b><small>São Paulo · SP</small></span></div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="quote">”</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Montou todos os móveis do meu apartamento novo. Pontual e caprichoso. Super recomendo!</p>
+        <div class="testi-author"><span class="ava">R</span><span><b>Ricardo Nunes</b><small>Campinas · SP</small></span></div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="quote">”</div>
+        <div class="testi-stars">★★★★★</div>
+        <p>Profissional pontual, organizado e deixou tudo perfeito. Limpou a bagunça e foi embora.</p>
+        <div class="testi-author"><span class="ava">F</span><span><b>Fernanda Costa</b><small>Belo Horizonte · MG</small></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats sec-pad">
+  <div class="wood-tex"></div>
+  <div class="wrap stats-grid">
+    <div class="stat" data-aos="zoom-in"><div class="num" data-count="300">+300</div><div class="lbl">Montagens realizadas</div></div>
+    <div class="stat" data-aos="zoom-in" data-aos-delay="100"><div class="num" data-count="50">+50</div><div class="lbl">Marcas atendidas</div></div>
+    <div class="stat" data-aos="zoom-in" data-aos-delay="200"><div class="num" data-count="90">90</div><div class="lbl">Dias de garantia</div></div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section id="contato" class="cta sec-pad">
+  <div class="wood-tex"></div>
+  <div class="glow"></div>
+  <div class="wrap cta-inner" data-aos="zoom-in">
+    <span class="eyebrow" style="justify-content:center">Vamos montar?</span>
+    <h2>Seu móvel chegou? <span class="accent">A gente monta!</span></h2>
+    <p>Orçamento gratuito e rápido pelo WhatsApp. Mande a foto do móvel e receba o valor na hora.</p>
+    <a href="#" class="btn btn-wa btn-lg"><i data-lucide="message-circle"></i> Solicitar Orçamento Agora</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark"><i data-lucide="wrench"></i></span>
+          <span style="color:#fff">Mateus Instalações</span>
+        </a>
+        <p>Qualidade e agilidade na montagem dos seus móveis. Atendimento autônomo, com ferramenta própria e garantia em cada serviço.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <a href="#">(11) 99999-9999</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">São Paulo e região</a>
+        <a href="#">Seg a Sáb · 8h às 19h</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 Mateus Instalações. Todos os direitos reservados.</span>
+      <span>Site demonstrativo · Conteúdo de exemplo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="#contato" class="wa-float" aria-label="Falar no WhatsApp">
+  <i data-lucide="message-circle"></i>
+  <span class="wa-label">Falar no WhatsApp</span>
+</a>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  lucide.createIcons();
+  AOS.init({duration:750,easing:'ease-out-cubic',once:true,offset:80});
+
+  // navbar shadow on scroll
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // mobile menu
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').addEventListener('click',()=>mm.classList.add('open'));
+  document.getElementById('closeMenu').addEventListener('click',()=>mm.classList.remove('open'));
+  mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+  // animated counter for stats
+  const fmt=(el,val,prefix)=>{el.textContent=prefix+Math.floor(val)};
+  const counters=document.querySelectorAll('.num[data-count]');
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target, target=+el.dataset.count, prefix=el.textContent.trim().startsWith('+')?'+':'';
+      let start=null;const dur=1400;
+      const tick=(t)=>{if(!start)start=t;const p=Math.min((t-start)/dur,1);
+        const eased=1-Math.pow(1-p,3);fmt(el,target*eased,prefix);
+        if(p<1)requestAnimationFrame(tick);else fmt(el,target,prefix);};
+      requestAnimationFrame(tick);io.unobserve(el);
+    });
+  },{threshold:.5});
+  counters.forEach(c=>io.observe(c));
+</script>
+</body>
+</html>
